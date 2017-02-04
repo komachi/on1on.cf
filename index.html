@@ -1,0 +1,54 @@
+---
+layout: default
+langcode: en_US
+title: How to whitelist Tor users on your Cloudflare-protected website
+description: This simple guide will help you with that
+hashtag: DontBlockTor
+---
+
+<h1 class="p-name">How to whitelist <i class="tor-logo" aria-hidden="true"></i>Tor users<br />on your <i class="cloudflare-logo" aria-hidden="true"></i>Cloudflare-protected website</h1>
+<div class="e-content">
+  <section>
+    <h3>What is Cloudflare?</h3>
+    <p><a href="https://cloudflare.com" target="_blank">Cloudflare</a> is a <a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank">CDN</a> service acting like a <a href="https://en.wikipedia.org/wiki/Reverse_proxy" target="_blank">reverse proxy</a> for websites protecting them from malicious requests and optimizing content delivery serving cached content from their servers. If you use Cloudflare, this guide can help you whitelist requests from Tor network. If your favorite website use Cloudflare and you are experiencing troubles with accessing this via Tor, you can link this guide to website administrators.</p>
+  </section>
+
+  <section>
+    <h3>What is Tor?</h3>
+    <p><a href="https://torproject.org" target="_blank">Tor</a> is a free anonymity software. It utilise <a href="https://en.wikipedia.org/wiki/Onion_routing" target="_blank">onion routing</a> to route traffic via randomly selected nodes in different countries and protect users from censorship and surveillance worldwide. Many people uses Tor for good. Tor Project website <a href="https://www.torproject.org/about/torusers.html.en" target="_blank">lists cases</a> where Tor helps a lot.
+  </section>
+  <section id="why">
+    <h3>Why I should do this?</h3>
+    <p>Cloudflare has an IP reputation system. It scores IP adresses based on their traffic history. Tor has a limited number of exit nodes (that means one IP address means a lot of users, most of them issuing non-malicious requests), and that cause Cloudflare to block by default most of nodes. Users of <a href="https://www.torproject.org/projects/torbrowser.html.en" target="_blank">Tor Browser</a> deals with dozens CAPTHA challenges a day, because of popularity of Cloudflare and Tor Browser's mechanism to isolate curcuits.</p>
+    <p>That looks like this.</p>
+    <img src="/images/cloudflare-captcha.png" class="img-fluid" />
+    <p><a href="http://sec.cs.ucl.ac.uk/users/smurdoch/papers/ndss16doyousee.pdf" target="_blank">Research shows</a> that at least 80% Tor exit nodes was blocked by Cloudflare. Research from Cloudflare competitor, <a href="https://akamai.com" target="_blank">Akamai</a>, <a href="https://www.akamai.com/us/en/multimedia/documents/state-of-the-internet/2015-q2-cloud-security-report.pdf" target="_blank">shows</a> that Tor users has nearly the same (1:895 vs 1:833) conversion rate as non-Tor users. Akamai concludes: "Many research papers and news articles have proven that the Tor network brings a wide range of risks, but at the same time, most of them completely avoid the fact that there is also business potential to allowing Tor users to browse revenue-generating websites."</p>
+  </section>
+  <section id="how">
+    <h3>How to whitelist Tor users?</h3>
+    <ol>
+      <li>Login to your Cloudflare account</li>
+      <li>
+        <p>Select your domain</p>
+        <img src="/images/select-domain.png" class="img-fluid"/>
+      </li>
+      <li>
+        <p>Open "Firewall" tab</p>
+        <img src="/images/firewall.png" />
+      </li>
+      <li>
+        <p>Scroll to "Access rules"</p>
+        <img src="/images/access-rules.png" class="img-fluid" />
+      </li>
+      <li>
+        <p>Find "Tor", select an action (whitelist) and select if this rule should be active on this website or on all websites.</p>
+        <img src="/images/add-rule.png" class="img-fluid" />
+      </li>
+      <li>
+        <p>Done</p>
+        <img src="/images/done.png" class="img-fluid" />
+      </li>
+    </ol>
+  </section>
+</div>
+<p class="text-muted text-xs-center small">Cloudflare logo and trademark belongs to <a href="https://cloudflare.com" target="_blank">Cloudflare, Inc.</a> and used here under terms of fair use. Tor logo and trademark belongs to <a href="https://torproject.org" target="_blank">The Tor Project, Inc.</a> and distributed under terms of <a href="https://creativecommons.org/licenses/by/3.0/us/deed.en" target="_blank">CC BY 3.0 US</a>. <a href="https://fontawesome.io" target="_blank">Font Awesome</a> icons distributed under terms of <a href="http://scripts.sil.org/OFL" target="_blank">SIL OFL 1.1</a>.</p>

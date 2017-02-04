@@ -1,0 +1,55 @@
+---
+layout: default
+langcode: ru_RU
+title: Как разблокировать пользователей Tor на своем сайте, защищенном Cloudflare
+description: Простая инструкция, которая поможет вам в этом
+hashtag: НеБлокируйтеTor
+---
+
+<h1 class="p-name">Как разблокировать пользователей <i class="tor-logo" aria-hidden="true"></i>Tor<br />на своем сайте, защищенном <i class="cloudflare-logo" aria-hidden="true"></i>Cloudflare</h1>
+<div class="e-content">
+  <section>
+    <h3>Что такое Cloudflare?</h3>
+    <p><a href="https://cloudflare.com" target="_blank">Cloudflare</a> — <a href="https://ru.wikipedia.org/wiki/Content_Delivery_Network" target="_blank">CDN</a> сервис, работающий как <a href="https://ru.wikipedia.org/wiki/%D0%9E%D0%B1%D1%80%D0%B0%D1%82%D0%BD%D1%8B%D0%B9_%D0%BF%D1%80%D0%BE%D0%BA%D1%81%D0%B8" target="_blank">реверс прокси</a> для сайтов. Он защищает от вредоносных запросов и оптимизирует доставку контента путем отдачи кэшированного контента со своих серверов. Если вы используете Cloudflare, эта статья поможет добавить в белый список запросы из сети Tor. Если ваш любимый сайт использует Cloudflare и вы испытываете трудности с доступом к нему через Tor — отправьте ссылку на эту статью администраторам сайта.</p>
+  </section>
+
+  <section>
+    <h3>Что такое Tor?</h3>
+    <p><a href="https://torproject.org" target="_blank">Tor</a> — свободное программное обеспечение для анонимизации. Tor использует <a href="https://ru.wikipedia.org/wiki/%D0%9B%D1%83%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F_%D0%BC%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" target="_blank">луковую маршрутизацию</a> чтобы перенаправлять трафик через случайно выбранные узлы, находящиеся в разных странах, тем самым защищая пользователей по всему миру от цензуры и массовой слежки. На сайте Tor Project <a href="https://www.torproject.org/about/torusers.html.en" target="_blank">размещен список историй</a> о том, как люди используют Tor для благих целей.
+  </section>
+
+  <section id="why">
+    <h3>Зачем мне делать это?</h3>
+    <p>Cloudflare использует систему репутации IP адресов, которая оценивает их основываясь на истории трафика. Tor использует ограниченное количество выходных узлов (это значит что один IP адрес используется большим количеством людей, большинство из которых отправляет невредоносные запросы), и это причина, по которой Cloudflare блокирует по умолчанию большинство узлов. Пользователи <a href="https://www.torproject.org/projects/torbrowser.html.en" target="_blank">Tor Browser</a> решают десятки каптч в день из-за популярности Cloudflare и механизма Tor Browser по изолированию цепочек.</p>
+    <p>Это выглядит так.</p>
+    <img src="/images/cloudflare-captcha.png" class="img-fluid" />
+    <p><a href="http://sec.cs.ucl.ac.uk/users/smurdoch/papers/ndss16doyousee.pdf" target="_blank">Исследование показывает</a>, что как минимум 80% выходных узлов Tor блокируются Cloudflare. Исследование конкурента Cloudflare, <a href="https://akamai.com" target="_blank">Akamai</a>, <a href="https://www.akamai.com/us/en/multimedia/documents/state-of-the-internet/2015-q2-cloud-security-report.pdf" target="_blank">показывает</a> что пользователи Tor имеют практически одинаковый показатель конверсии (1:833 против 1:895) по сравнению с другими пользователями. Вывод Akamai: «Многие исследовательские и новостные публикации показывают, что сеть Tor несет большой спектр рисков, но в то же время, большинство полностью обходят стороной факт того, что существует также потенциал для бизнеса в позволении пользователям Tor использовать сайты, приносящие доход».</p>
+  </section>
+  <section id="how">
+    <h3>Как добавить пользователей Tor в белый список?</h3>
+    <ol>
+      <li>Войдите в аккаунт Cloudflare</li>
+      <li>
+        <p>Выберите домен</p>
+        <img src="/images/select-domain.png" class="img-fluid"/>
+      </li>
+      <li>
+        <p>Откройте вкладку «<i>Firewall</i>»</p>
+        <img src="/images/firewall.png" />
+      </li>
+      <li>
+        <p>Прокрутите вниз до настройки «<i>Access rules</i>»</p>
+        <img src="/images/access-rules.png" class="img-fluid" />
+      </li>
+      <li>
+        <p>Найдите «Tor», выберите действие (<i>Whitelist</i>) и укажите должно ли это правило использоваться только для этого сайта (<i>This website</i>) или для всех ваших сайтов (<i>All your websites</i>)</p>
+        <img src="/images/add-rule.png" class="img-fluid" />
+      </li>
+      <li>
+        <p>Готово</p>
+        <img src="/images/done.png" class="img-fluid" />
+      </li>
+    </ol>
+  </section>
+</div>
+<p class="text-muted text-xs-center small">Логотип Cloudflare и торговая марка принадлежит <a href="https://cloudflare.com" target="_blank">Cloudflare, Inc.</a> и использован здесь на условиях добросовестного использования. Логотип Tor и торговая марка принадлежит <a href="https://torproject.org" target="_blank">The Tor Project, Inc.</a> и распространяется на условиях <a href="https://creativecommons.org/licenses/by/3.0/us/deed.en" target="_blank">CC BY 3.0 US</a>. Иконки <a href="https://fontawesome.io" target="_blank">Font Awesome</a> распространяются на условиях <a href="http://scripts.sil.org/OFL" target="_blank">SIL OFL 1.1</a>.</p>

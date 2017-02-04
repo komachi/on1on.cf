@@ -1,0 +1,34 @@
+baseurl: ""
+url: "https://on1on.cf"
+
+github: komachi/on1on.cf
+title: "on1on.cf"
+twitter:
+  username: AntNesterov
+author:
+  twitter: AntNesterov
+og:
+  type: article
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+      seo:
+        type: Article
+
+languages:
+  - name: English
+    link: '/'
+    code: en_US
+  - name: Русский
+    link: '/ru'
+    code: ru_RU
+
+
+# Build settings
+markdown: kramdown
+gems:
+  - jekyll-seo-tag
+  - jekyll-sitemap

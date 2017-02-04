@@ -1,0 +1,58 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+ol {
+  padding-left: 1em;
+}
+
+body {
+  font-family: "Roboto Slab";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+}
+
+img {
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  -moz-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  margin-bottom: 12px;
+}
+
+.cloudflare-logo {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;;
+  height: .8em;
+  width: 1.8em;
+  display: inline-block;
+  position: relative;
+  background-image: url("/images/cloudflare-logo.svg");
+}
+
+.tor-logo {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;;
+  height: .9em;
+  width: .8em;
+  display: inline-block;
+  position: relative;
+  background-image: url("/images/tor-logo.svg");
+}
+
+section {
+  padding-top: 1em;
+}
+
+.icons {
+  padding: 1em 0;
+}
+
+.icons a,
+.icons a:link {
+  color: #000 !important;
+}
